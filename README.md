@@ -1,76 +1,157 @@
-**Sarcasm Detection with Transformer Models**  
-This project explores sarcasm detection in text by fine-tuning various Transformer models. It includes scripts to train, evaluate, and compare the performance of BERT, RoBERTa, and GPT-2 using PyTorch and the Hugging Face Transformers library.<br><br>  
+Sarcasm Detection using Transformer Models
 
-**Project Overview**  
-The primary goal of this project is to build and evaluate robust classifiers for detecting sarcasm in textual data. The project provides a framework for:  
-		• Fine-tuning individual models like BERT and RoBERTa on a sarcasm dataset.  
-		• Evaluating the performance of trained models using standard classification metrics.  
-		• Conducting a comparative analysis to determine which model architecture performs best on this specific task.  <br><br>
+A complete end-to-end NLP system that detects sarcasm in short-form text using fine-tuned Transformer models.
+The project includes model training pipelines, evaluation scripts, and a modern Flask-based web dashboard for real-time sarcasm prediction and model comparison.
 
 
-**Tech Stack & Key Components**  
-**- Models**  
-		• **BERT (bert-base-uncased)**: A powerful bidirectional transformer model.  
-		• **RoBERTa (roberta-base)**: A robustly optimized version of BERT with improved training methodology.  
-		• **GPT-2 (gpt2)**: A generative transformer model, also adaptable for classification tasks.  
+Project Overview
 
-**- Libraries & Frameworks**  
-		• **PyTorch**: The core deep learning framework.  
-		• **Hugging Face transformers**: For accessing pre-trained models and using the Trainer API.  
-		• **Hugging Face datasets**: For handling and processing datasets efficiently.  
-		• **Scikit-learn**: For performance metrics (accuracy, precision, recall, F1-score) and data splitting.  
-		• **Pandas**: For data manipulation and loading CSV files.  
-		• **Matplotlib & Seaborn**: For creating visualizations of model performance.  
+Sarcasm often expresses meaning opposite to literal text, making it difficult for traditional sentiment analysis systems to interpret correctly.
+This project builds a context-aware sarcasm detection system by fine-tuning Transformer-based language models to classify tweets as:
+	•	Sarcastic
+	•	Not Sarcastic
 
-**- Datasets**  
-		• **Data/sarcasm_dataset.csv**: The primary dataset used for training the models.  
-		• **Data/test_dataset 2.csv**: A test set used exclusively by metrics.py for model comparison.  
-		• **Data/test_dataset 3.csv**: A test set used by the individual evaluation scripts (TestBert.py and TestRoberta.py).  <br><br>
+In addition to training high-performing models, the project provides an interactive web dashboard where users can enter any text, select a model, and instantly receive sarcasm predictions with confidence scores.
 
 
-**Project Structure**  <br><br>
-RoBERTa-Sarcasm-Project/  
-├── Data/  
-│   ├── sarcasm_dataset.csv  
-│   ├── test_dataset 2.csv  
-│   └── test_dataset 3.csv  
-├── Bert.py  
-├── RoBERTa.py  
-├── TestBert.py  
-├── TestRoberta.py  
-├── metrics.py  
-├── Cleanup.py  
-└── README.md  <br><br>
+Key Features
+	•	Fine-tuned BERT and RoBERTa models for sarcasm classification
+	•	Real-time Flask dashboard for single-text prediction
+	•	Model comparison mode to evaluate BERT vs RoBERTa on the same input
+	•	Confidence visualization for each prediction
+	•	Clean, dark-themed UI for demonstration and deployment
+	•	Modular training, evaluation, and inference scripts
 
 
-**Getting Started**  
-**- Requirements**  
-		• Python 3  
-		• Git  
+Technologies Used
 
-**- Installation & Setup**  
-		1 **Clone the repository**:  git clone https://github.com/ruthwikr17/Sarcasm-Detection-RoBERTa <br>
-                               cd Sarcasm-Detection-RoBERTa    <br>
-		2 **Create a virtual environment (recommended)**:  python -m venv venv  
-          	                                     source venv/bin/activate  # On Windows, use `venv\Scripts\activate`  
-		3 **Install the required packages**:  pip install torch transformers datasets pandas scikit-learn matplotlib seaborn  <br><br>
+Programming Language
+	•	Python 3.9+
+
+Deep Learning & NLP
+	•	PyTorch
+	•	Hugging Face Transformers
+
+Models
+	•	BERT (bert-base-uncased)
+	•	RoBERTa (roberta-base)
+
+Data Processing
+	•	Pandas, NumPy
+
+Evaluation
+	•	Scikit-learn (Accuracy, Precision, Recall, F1-score)
+
+Web Deployment
+	•	Flask
+	•	HTML, CSS, JavaScript
 
 
-**Workflow and Usage**  
-This project provides two distinct workflows: one for building a specific, usable model, and another for conducting a comparative experiment.  
+Dataset
 
-**- Individual Model Scripts** (Bert.py,  RoBERTa.py, etc.)  
-	• Purpose: These scripts are for the end-to-end process of building a single, deployable model.  
-	• Workflow: You run RoBERTa.py to train the model and save the final version. You then use TestRoberta.py to evaluate that specific saved model and use it for predictions. This simulates a production-like pipeline where you create a tool and then test it.  
+The models are trained and evaluated on labeled tweet datasets containing sarcastic and non-sarcastic samples.
 
-**- Metrics Comparison Script** (metrics.py)  
-	• Purpose: This script is an experimental testbed designed to answer the question: "Which model architecture is best for this specific task?"  
-	• Workflow: It trains BERT, RoBERTa, and GPT-2 from scratch under the same conditions and directly compares their performance metrics. Its goal is not to save a final model for later use, but to generate a comparative analysis to inform which architecture you might choose to build with the individual scripts.  <br><br>
+Binary Classification Labels:
+	•	1 → Sarcastic
+	•	0 → Not Sarcastic
+
+Data preprocessing includes:
+	•	Cleaning and normalization
+	•	Class balancing
+	•	Tokenization using model-specific tokenizers
+	•	Train-test split to avoid data leakage
 
 
-**Future Additions**  
-Potential improvements and future directions for this project include:  
-1. Hyperparameter Tuning: Integrating tools like Optuna or Ray Tune to find the optimal hyperparameters for training.  
-2. Expanded Model Comparison: Including newer architectures like DeBERTa, ELECTRA, or XLNet in the metrics.py comparison script.  
-3. Web Interface: Building a simple front-end with Streamlit or Gradio to make the sarcasm prediction tool more user-friendly.   
+System Workflow
 
+Input Tweet
+     ↓
+Tokenizer (BERT / RoBERTa)
+     ↓
+Fine-tuned Transformer Model
+     ↓
+Softmax Classification Layer
+     ↓
+Prediction + Confidence Score
+     ↓
+Web Dashboard Output
+
+
+
+Model
+Accuracy
+Precision
+Recall
+F1-Score
+RoBERTa
+0.885
+0.871
+0.899
+0.885
+BERT
+0.862
+0.845
+0.881
+0.863
+
+
+
+Project Structure
+
+Sarcasm-Detection-RoBERTa/
+│
+├── app.py                     
+├── templates/                
+├── static/                
+│
+├── Bert.py                   
+├── RoBERTa.py          
+├── TestBert.py                
+├── TestRoberta.py   
+├── metrics.py                
+├── Cleanup.py             
+│
+├── Data/                    
+├── requirements.txt
+└── README.md
+
+
+Running the Web Dashboard
+
+Install Dependencies
+pip install -r requirements.txt
+
+Run Flask App
+python app.py
+
+Open in Browser
+http://127.0.0.1:5000/
+
+
+Dashboard Capabilities
+	•	Enter any tweet or sentence
+	•	Select BERT or RoBERTa model
+	•	Detect sarcasm in real-time
+	•	View prediction label and confidence
+	•	Compare both models on same input
+
+Example Predictions
+
+Input:
+“Oh great, another meeting that could’ve been an email. Fantastic.”
+
+Output:
+Prediction: Sarcastic
+Confidence: 0.9997
+
+
+Future Enhancements
+	•	Multilingual sarcasm detection
+	•	Larger and more diverse datasets
+	•	Context-aware conversation-based sarcasm detection
+
+Author
+
+Ruthvik Reddy
+AI / ML Developer
+GitHub: https://github.com/ruthwikr17
