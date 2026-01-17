@@ -49,7 +49,7 @@ RoBERTa-Sarcasm-Project/
 		• Git  
 
 **- Installation & Setup**  
-		1 **Clone the repository**:  git clone https://github.com/ruthwikr17/Sarcasm-Detection-RoBERTa 
+		1 **Clone the repository**:  git clone https://github.com/ruthwikr17/Sarcasm-Detection-RoBERTa <br>
                                cd Sarcasm-Detection-RoBERTa    <br>
 		2 **Create a virtual environment (recommended)**:  python -m venv venv  
           	                                     source venv/bin/activate  # On Windows, use `venv\Scripts\activate`  
