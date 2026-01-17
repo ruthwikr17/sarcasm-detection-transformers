@@ -1,69 +1,70 @@
-Sarcasm Detection using Transformer Models
+## Sarcasm Detection using Transformer Models
 
 A complete end-to-end NLP system that detects sarcasm in short-form text using fine-tuned Transformer models.
-The project includes model training pipelines, evaluation scripts, and a modern Flask-based web dashboard for real-time sarcasm prediction and model comparison.
+The project includes model training pipelines, evaluation scripts, and a modern Flask-based web dashboard for real-time sarcasm prediction and model comparison. <br>
 
 
-Project Overview
+## Project Overview
 
 Sarcasm often expresses meaning opposite to literal text, making it difficult for traditional sentiment analysis systems to interpret correctly.
-This project builds a context-aware sarcasm detection system by fine-tuning Transformer-based language models to classify tweets as:
-	•	Sarcastic
-	•	Not Sarcastic
+This project builds a context-aware sarcasm detection system by fine-tuning Transformer-based language models to classify tweets as: <br>
+	•	Sarcastic <br>
+	•	Not Sarcastic <br>
 
-In addition to training high-performing models, the project provides an interactive web dashboard where users can enter any text, select a model, and instantly receive sarcasm predictions with confidence scores.
-
-
-Key Features
-	•	Fine-tuned BERT and RoBERTa models for sarcasm classification
-	•	Real-time Flask dashboard for single-text prediction
-	•	Model comparison mode to evaluate BERT vs RoBERTa on the same input
-	•	Confidence visualization for each prediction
-	•	Clean, dark-themed UI for demonstration and deployment
-	•	Modular training, evaluation, and inference scripts
+In addition to training high-performing models, the project provides an interactive web dashboard where users can enter any text, select a model, and instantly receive sarcasm predictions with confidence scores. <br>
 
 
-Technologies Used
-
-Programming Language
-	•	Python 3.9+
-
-Deep Learning & NLP
-	•	PyTorch
-	•	Hugging Face Transformers
-
-Models
-	•	BERT (bert-base-uncased)
-	•	RoBERTa (roberta-base)
-
-Data Processing
-	•	Pandas, NumPy
-
-Evaluation
-	•	Scikit-learn (Accuracy, Precision, Recall, F1-score)
-
-Web Deployment
-	•	Flask
-	•	HTML, CSS, JavaScript
+Key Features <br>
+	•	Fine-tuned BERT and RoBERTa models for sarcasm classification <br>
+	•	Real-time Flask dashboard for single-text prediction <br>
+	•	Model comparison mode to evaluate BERT vs RoBERTa on the same input <br>
+	•	Confidence visualization for each prediction <br>
+	•	Clean, dark-themed UI for demonstration and deployment <br>
+	•	Modular training, evaluation, and inference scripts <br>
 
 
-Dataset
+## Technologies Used <br>
 
-The models are trained and evaluated on labeled tweet datasets containing sarcastic and non-sarcastic samples.
+**Programming Language** <br>
+	•	Python 3.9+ <br>
 
-Binary Classification Labels:
-	•	1 → Sarcastic
-	•	0 → Not Sarcastic
+**Deep Learning & NLP** <br>
+	•	PyTorch <br>
+	•	Hugging Face Transformers <br>
 
-Data preprocessing includes:
-	•	Cleaning and normalization
-	•	Class balancing
-	•	Tokenization using model-specific tokenizers
-	•	Train-test split to avoid data leakage
+**Models** <br>
+	•	BERT (bert-base-uncased) <br>
+	•	RoBERTa (roberta-base) <br>
+
+**Data Processing** <br>
+	•	Pandas, NumPy <br>
+
+**Evaluation** <br>
+	•	Scikit-learn (Accuracy, Precision, Recall, F1-score) <br>
+
+**Web Deployment** <br>
+	•	Flask <br>
+	•	HTML, CSS, JavaScript <br>
 
 
-System Workflow
+## Dataset <br>
 
+The models are trained and evaluated on labeled tweet datasets containing sarcastic and non-sarcastic samples. <br>
+
+**Binary Classification Labels:** <br>
+	•	1 → Sarcastic <br>
+	•	0 → Not Sarcastic <br>
+
+**Data preprocessing includes:** <br>
+	•	Cleaning and normalization <br>
+	•	Class balancing <br>
+	•	Tokenization using model-specific tokenizers <br>
+	•	Train-test split to avoid data leakage <br>
+
+
+## System Workflow
+
+```
 Input Tweet
      ↓
 Tokenizer (BERT / RoBERTa)
@@ -75,19 +76,19 @@ Softmax Classification Layer
 Prediction + Confidence Score
      ↓
 Web Dashboard Output
+```
 
 
-
-Model
-Accuracy
-Precision
-Recall
-F1-Score
+**Model**
+**Accuracy**
+**Precision**
+**Recall**
+**F1-Score** <br>
 RoBERTa
 0.885
 0.871
 0.899
-0.885
+0.885 <br>
 BERT
 0.862
 0.845
@@ -96,8 +97,9 @@ BERT
 
 
 
-Project Structure
+## Project Structure <br>
 
+```
 Sarcasm-Detection-RoBERTa/
 │
 ├── app.py                     
@@ -114,43 +116,45 @@ Sarcasm-Detection-RoBERTa/
 ├── Data/                    
 ├── requirements.txt
 └── README.md
+```
 
 
-Running the Web Dashboard
+## Running the Web Dashboard <br>
 
-Install Dependencies
-pip install -r requirements.txt
+**Install Dependencies**
+```pip install -r requirements.txt```
 
-Run Flask App
-python app.py
+**Run Flask App**
+```python app.py```
 
-Open in Browser
-http://127.0.0.1:5000/
+**Open in Browser**
+```http://127.0.0.1:5000/```
+<br>
 
 
-Dashboard Capabilities
+## Dashboard Capabilities <br>
 	•	Enter any tweet or sentence
 	•	Select BERT or RoBERTa model
 	•	Detect sarcasm in real-time
 	•	View prediction label and confidence
 	•	Compare both models on same input
 
-Example Predictions
+## Example Predictions
 
-Input:
-“Oh great, another meeting that could’ve been an email. Fantastic.”
+**Input:** <br>
+“Oh great, another meeting that could’ve been an email. Fantastic.” <br>
 
-Output:
-Prediction: Sarcastic
-Confidence: 0.9997
+**Output:** <br>
+Prediction: Sarcastic <br>
+Confidence: 0.9997 <br>
 
 
-Future Enhancements
+## Future Enhancements
 	•	Multilingual sarcasm detection
 	•	Larger and more diverse datasets
 	•	Context-aware conversation-based sarcasm detection
 
-Author
+## Author
 
 Ruthvik Reddy
 AI / ML Developer
